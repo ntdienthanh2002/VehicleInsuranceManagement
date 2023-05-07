@@ -1,0 +1,101 @@
+﻿@using VehicleInsuranceManagement.Models
+@model dynamic
+
+@{
+    OrderPolicy order = Model.OrderPolicy;
+    Coefficient coefficient = Model.Coefficient;
+}
+
+<table class="table orderDetails">
+    <tr class="header">
+        <td colspan="5">
+            <div class="row" style="padding-top: 0.5rem;">
+                <div class="col-6"><b>VEHICLE INFORMATION</b></div>
+                <div class="col-6"><b>INSURANCE INFORMATION</b></div>
+            </div>
+        </td>
+    </tr>
+    <tr class="header">
+        <td colspan="5">
+            <div class="row">
+                <div class="col-6">
+                    <b>Type: </b>@order.Vehicle.VehicleType.VehicleTypeName
+                    <br />
+                    <b>Brand: </b>@order.Vehicle.VehicleModel.VehicleBrand.VehicleBrandName
+                    <br />
+                    <b>Model: </b>@order.Vehicle.VehicleModel.VehicleModelName
+                    <br />
+                    <b>Owner: </b>@order.Vehicle.VehicleOwnerName
+                    <br />
+                    <b>Vehicle Number: </b>@order.Vehicle.VehicleNumber
+                    <br />
+                </div>
+                <div class="col-6">
+                    <b>Type: </b>@order.InsuranceType.InsuranceTypeName
+                    <br />
+                    @{
+                        double price = Convert.ToDouble(order.InsurancePrice);
+                        double c = Convert.ToDouble(coefficient.Coefficient1);
+                        var insurancePrice = price + price * c;
+                    }
+                    <b>Price: </b>@String.Format("{0:C}", insurancePrice)
+                    <br />
+                    @{
+                        DateTime endDate = order.PolicyDate.AddYears(order.PolicyDuration).AddDays(-1);
+                    }
+                    <b>Duration: </b>@order.PolicyDate.ToString("MM/dd/yyyy") - @endDate.ToString("MM/dd/yyyy")
+                    <br />
+                    @{
+                        string paymentType = order.PaymentType;
+                        double coefficientByPayment = 0;
+                        if (paymentType == "fully")
+                        {
+                            coefficientByPayment = 0;
+                        }
+                        else if (paymentType == "monthly")
+                        {
+                            coefficientByPayment = 0.1;
+                        }
+                        else if (paymentType == "quarterly")
+                        {
+                            coefficientByPayment = 0.05;
+                        }
+                        else if (paymentType == "annual")
+                        {
+                            coefficientByPayment = 0.025;
+                        }
+                    }
+                    <b>Payment Type: </b>@Char.ToUpper(paymentType.ElementAt(0))@paymentType.Substring(1)
+                    <br />
+                    <b>Total price: </b>@String.Format("{0:C}", insurancePrice + insurancePrice * coefficientByPayment)
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5">
+            <h5 style="color: #596277; margin-top: 1rem;">Payment Schedule</h5>
+        </td>
+    </tr>
+    <tr>
+        <th>No</th>
+        <th>Expected Date</th>
+        <th>Actual Date</th>
+        <th>Amount</th>
+        <th>Status</th>
+    </tr>
+    @{
+        int i = 1;
+        foreach (Bill bill in Model.Bills)
+        {
+            <tr>
+                <td>@i</td>
+                <td>@bill.ExpectedDate.ToString("MM/dd/yyyy")</td>
+                <td>@bill.ActualDatetime</td>
+                <td>@String.Format("{0:C}", bill.Amount)</td>
+                <td>@Char.ToUpper(bill.Status.ElementAt(0))@bill.Status.Substring(1)</td>
+            </tr>
+            i++;
+        }
+    }
+</table>

@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VehicleInsuranceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bill">
+    <Key>
+      <PropertyRef Name="BillNo" />
+    </Key>
+    <Property Name="BillNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PolicyNumber" Type="int" Nullable="false" />
+    <Property Name="ActualDatetime" Type="datetime" />
+    <Property Name="ExpectedDate" Type="date" Nullable="false" />
+    <Property Name="Amount" Type="money" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Claim">
+    <Key>
+      <PropertyRef Name="ClaimNumber" />
+    </Key>
+    <Property Name="ClaimNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PolicyNumber" Type="int" Nullable="false" />
+    <Property Name="PlaceOfAccident" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="DateOfAccident" Type="date" Nullable="false" />
+    <Property Name="InsuredAmount" Type="money" />
+    <Property Name="ClaimableAmount" Type="money" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Coefficient">
+    <Key>
+      <PropertyRef Name="CoefficientID" />
+    </Key>
+    <Property Name="CoefficientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SeatNumber" Type="int" Nullable="false" />
+    <Property Name="Coefficient" Type="decimal" Precision="2" Scale="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CompanyExpense">
+    <Key>
+      <PropertyRef Name="CompanyExpenseID" />
+    </Key>
+    <Property Name="CompanyExpenseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateOfExpense" Type="date" Nullable="false" />
+    <Property Name="TypeOfExpense" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="AmountOfExpense" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CustomerName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CustomerADD" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="CustomerPhoneNumber" Type="int" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="CitizenIdentityCard" Type="bigint" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmployeeName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="EmployeeADD" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="EmployeePhoneNumber" Type="int" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="70" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Feedback">
+    <Key>
+      <PropertyRef Name="FeedbackID" />
+    </Key>
+    <Property Name="FeedbackID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Datetime" Type="datetime" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InsuranceType">
+    <Key>
+      <PropertyRef Name="InsuranceTypeID" />
+    </Key>
+    <Property Name="InsuranceTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InsuranceTypeName" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderPolicy">
+    <Key>
+      <PropertyRef Name="PolicyNumber" />
+    </Key>
+    <Property Name="PolicyNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VehicleID" Type="int" Nullable="false" />
+    <Property Name="InsuranceTypeID" Type="int" Nullable="false" />
+    <Property Name="InsurancePrice" Type="money" Nullable="false" />
+    <Property Name="OrderDate" Type="datetime" Nullable="false" />
+    <Property Name="PolicyDate" Type="date" Nullable="false" />
+    <Property Name="PolicyDuration" Type="int" Nullable="false" />
+    <Property Name="PaymentType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="VehicleID" />
+    </Key>
+    <Property Name="VehicleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VehicleTypeID" Type="int" Nullable="false" />
+    <Property Name="VehicleModelID" Type="int" Nullable="false" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="VehicleOwnerName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="VehicleBodyNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="VehicleEngineNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="VehicleNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Image" Type="varbinary(max)" Nullable="false" />
+    <Property Name="SeatNumber" Type="int" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VehicleBrand">
+    <Key>
+      <PropertyRef Name="VehicleBrandID" />
+    </Key>
+    <Property Name="VehicleBrandID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VehicleBrandName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VehicleModel">
+    <Key>
+      <PropertyRef Name="VehicleModelID" />
+    </Key>
+    <Property Name="VehicleModelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VehicleBrandID" Type="int" Nullable="false" />
+    <Property Name="VehicleModelName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VehicleType">
+    <Key>
+      <PropertyRef Name="VehicleTypeID" />
+    </Key>
+    <Property Name="VehicleTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VehicleTypeName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Bill__PolicyNumb__0F624AF8">
+    <End Role="OrderPolicy" Type="Self.OrderPolicy" Multiplicity="1" />
+    <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderPolicy">
+        <PropertyRef Name="PolicyNumber" />
+      </Principal>
+      <Dependent Role="Bill">
+        <PropertyRef Name="PolicyNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Claim__PolicyNum__123EB7A3">
+    <End Role="OrderPolicy" Type="Self.OrderPolicy" Multiplicity="1" />
+    <End Role="Claim" Type="Self.Claim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderPolicy">
+        <PropertyRef Name="PolicyNumber" />
+      </Principal>
+      <Dependent Role="Claim">
+        <PropertyRef Name="PolicyNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Feedback__Custom__4CA06362">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Feedback">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderPoli__Insur__0C85DE4D">
+    <End Role="InsuranceType" Type="Self.InsuranceType" Multiplicity="1" />
+    <End Role="OrderPolicy" Type="Self.OrderPolicy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InsuranceType">
+        <PropertyRef Name="InsuranceTypeID" />
+      </Principal>
+      <Dependent Role="OrderPolicy">
+        <PropertyRef Name="InsuranceTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderPoli__Vehic__0B91BA14">
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="1" />
+    <End Role="OrderPolicy" Type="Self.OrderPolicy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="VehicleID" />
+      </Principal>
+      <Dependent Role="OrderPolicy">
+        <PropertyRef Name="VehicleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vehicle__Custome__04E4BC85">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vehicle__Vehicle__02FC7413">
+    <End Role="VehicleType" Type="Self.VehicleType" Multiplicity="1" />
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VehicleType">
+        <PropertyRef Name="VehicleTypeID" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="VehicleTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vehicle__Vehicle__03F0984C">
+    <End Role="VehicleModel" Type="Self.VehicleModel" Multiplicity="1" />
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VehicleModel">
+        <PropertyRef Name="VehicleModelID" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="VehicleModelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VehicleMo__Vehic__534D60F1">
+    <End Role="VehicleBrand" Type="Self.VehicleBrand" Multiplicity="1" />
+    <End Role="VehicleModel" Type="Self.VehicleModel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VehicleBrand">
+        <PropertyRef Name="VehicleBrandID" />
+      </Principal>
+      <Dependent Role="VehicleModel">
+        <PropertyRef Name="VehicleBrandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="VehicleInsuranceModelStoreContainer">
+    <EntitySet Name="Bill" EntityType="Self.Bill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Claim" EntityType="Self.Claim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Coefficient" EntityType="Self.Coefficient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CompanyExpense" EntityType="Self.CompanyExpense" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InsuranceType" EntityType="Self.InsuranceType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderPolicy" EntityType="Self.OrderPolicy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vehicle" EntityType="Self.Vehicle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VehicleBrand" EntityType="Self.VehicleBrand" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VehicleModel" EntityType="Self.VehicleModel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VehicleType" EntityType="Self.VehicleType" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Bill__PolicyNumb__0F624AF8" Association="Self.FK__Bill__PolicyNumb__0F624AF8">
+      <End Role="OrderPolicy" EntitySet="OrderPolicy" />
+      <End Role="Bill" EntitySet="Bill" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Claim__PolicyNum__123EB7A3" Association="Self.FK__Claim__PolicyNum__123EB7A3">
+      <End Role="OrderPolicy" EntitySet="OrderPolicy" />
+      <End Role="Claim" EntitySet="Claim" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Feedback__Custom__4CA06362" Association="Self.FK__Feedback__Custom__4CA06362">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Feedback" EntitySet="Feedback" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderPoli__Insur__0C85DE4D" Association="Self.FK__OrderPoli__Insur__0C85DE4D">
+      <End Role="InsuranceType" EntitySet="InsuranceType" />
+      <End Role="OrderPolicy" EntitySet="OrderPolicy" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderPoli__Vehic__0B91BA14" Association="Self.FK__OrderPoli__Vehic__0B91BA14">
+      <End Role="Vehicle" EntitySet="Vehicle" />
+      <End Role="OrderPolicy" EntitySet="OrderPolicy" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vehicle__Custome__04E4BC85" Association="Self.FK__Vehicle__Custome__04E4BC85">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Vehicle" EntitySet="Vehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vehicle__Vehicle__02FC7413" Association="Self.FK__Vehicle__Vehicle__02FC7413">
+      <End Role="VehicleType" EntitySet="VehicleType" />
+      <End Role="Vehicle" EntitySet="Vehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vehicle__Vehicle__03F0984C" Association="Self.FK__Vehicle__Vehicle__03F0984C">
+      <End Role="VehicleModel" EntitySet="VehicleModel" />
+      <End Role="Vehicle" EntitySet="Vehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VehicleMo__Vehic__534D60F1" Association="Self.FK__VehicleMo__Vehic__534D60F1">
+      <End Role="VehicleBrand" EntitySet="VehicleBrand" />
+      <End Role="VehicleModel" EntitySet="VehicleModel" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

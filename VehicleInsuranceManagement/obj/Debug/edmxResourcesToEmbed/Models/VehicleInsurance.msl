@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VehicleInsuranceModelStoreContainer" CdmEntityContainer="VehicleInsuranceEntities">
+    <EntitySetMapping Name="Bills">
+      <EntityTypeMapping TypeName="VehicleInsuranceModel.Bill">
+        <MappingFragment StoreEntitySet="Bill">
+          <ScalarProperty Name="BillNo" ColumnName="BillNo" />
+          <ScalarProperty Name="PolicyNumber" ColumnName="PolicyNumber" />
+          <ScalarProperty Name="ActualDatetime" ColumnName="ActualDatetime" />
+          <ScalarProperty Name="ExpectedDate" ColumnName="ExpectedDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Claims">
+      <EntityTypeMapping TypeName="VehicleInsuranceModel.Claim">
+        <MappingFragment StoreEntitySet="Claim">
+          <ScalarProperty Name="ClaimNumber" ColumnName="ClaimNumber" />
+          <ScalarProperty Name="PolicyNumber" ColumnName="PolicyNumber" />
+          <ScalarProperty Name="PlaceOfAccident" ColumnName="PlaceOfAccident" />
+          <ScalarProperty Name="DateOfAccident" ColumnName="DateOfAccident" />
+          <ScalarProperty Name="InsuredAmount" ColumnName="InsuredAmount" />
+          <ScalarProperty Name="ClaimableAmount" ColumnName="ClaimableAmount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Coefficients">
+      <EntityTypeMapping TypeName="VehicleInsuranceModel.Coefficient">
+        <MappingFragment StoreEntitySet="Coefficient">
+          <ScalarProperty Name="CoefficientID" ColumnName="CoefficientID" />
+          <ScalarProperty Name="SeatNumber" ColumnName="SeatNumber" />
+          <ScalarProperty Name="Coefficient1" ColumnName="Coefficient" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompanyExpenses">
+      <EntityTypeMapping TypeName="VehicleInsuranceModel.CompanyExpense">
+        <MappingFragment StoreEntitySet="CompanyExpense">
+          <ScalarProperty Name="CompanyExpenseID" ColumnName="CompanyExpenseID" />
+          <ScalarProperty Name="DateOfExpense" ColumnName="DateOfExpense" />
+          <ScalarProperty Name="TypeOfExpense" ColumnName="TypeOfExpense" />
+          <ScalarProperty Name="AmountOfExpense" ColumnName="AmountOfExpense" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="VehicleInsuranceModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerADD" ColumnName="CustomerADD" />
+          <ScalarProperty Name="CustomerPhoneNumber" ColumnName="CustomerPhoneNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CitizenIdentityCard" ColumnName="CitizenIdentityCard" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="VehicleInsuranceModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="EmployeeADD" ColumnName="EmployeeADD" />
+          <ScalarProperty Name="EmployeePhoneNumber" ColumnName="EmployeePhoneNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Feedbacks">
+      <EntityTypeMapping TypeName="VehicleInsuranceModel.Feedback">
+        <MappingFragment StoreEntitySet="Feedback">
+          <ScalarProperty Name="FeedbackID" ColumnName="FeedbackID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Datetime" ColumnName="Datetime" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InsuranceTypes">
+      <EntityTypeMapping TypeName="VehicleInsuranceModel.InsuranceType">
+        <MappingFragment StoreEntitySet="InsuranceType">
+          <ScalarProperty Name="InsuranceTypeID" ColumnName="InsuranceTypeID" />
+          <ScalarProperty Name="InsuranceTypeName" ColumnName="InsuranceTypeName" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderPolicies">
+      <EntityTypeMapping TypeName="VehicleInsuranceModel.OrderPolicy">
+        <MappingFragment StoreEntitySet="OrderPolicy">
+          <ScalarProperty Name="InsurancePrice" ColumnName="InsurancePrice" />
+          <ScalarProperty Name="PolicyNumber" ColumnName="PolicyNumber" />
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+          <ScalarProperty Name="InsuranceTypeID" ColumnName="InsuranceTypeID" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="PolicyDate" ColumnName="PolicyDate" />
+          <ScalarProperty Name="PolicyDuration" ColumnName="PolicyDuration" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehicles">
+      <EntityTypeMapping TypeName="VehicleInsuranceModel.Vehicle">
+        <MappingFragment StoreEntitySet="Vehicle">
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+          <ScalarProperty Name="VehicleTypeID" ColumnName="VehicleTypeID" />
+          <ScalarProperty Name="VehicleModelID" ColumnName="VehicleModelID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="VehicleOwnerName" ColumnName="VehicleOwnerName" />
+          <ScalarProperty Name="VehicleBodyNumber" ColumnName="VehicleBodyNumber" />
+          <ScalarProperty Name="VehicleEngineNumber" ColumnName="VehicleEngineNumber" />
+          <ScalarProperty Name="VehicleNumber" ColumnName="VehicleNumber" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="SeatNumber" ColumnName="SeatNumber" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VehicleBrands">
+      <EntityTypeMapping TypeName="VehicleInsuranceModel.VehicleBrand">
+        <MappingFragment StoreEntitySet="VehicleBrand">
+          <ScalarProperty Name="VehicleBrandID" ColumnName="VehicleBrandID" />
+          <ScalarProperty Name="VehicleBrandName" ColumnName="VehicleBrandName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VehicleModels">
+      <EntityTypeMapping TypeName="VehicleInsuranceModel.VehicleModel">
+        <MappingFragment StoreEntitySet="VehicleModel">
+          <ScalarProperty Name="VehicleModelID" ColumnName="VehicleModelID" />
+          <ScalarProperty Name="VehicleBrandID" ColumnName="VehicleBrandID" />
+          <ScalarProperty Name="VehicleModelName" ColumnName="VehicleModelName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VehicleTypes">
+      <EntityTypeMapping TypeName="VehicleInsuranceModel.VehicleType">
+        <MappingFragment StoreEntitySet="VehicleType">
+          <ScalarProperty Name="VehicleTypeID" ColumnName="VehicleTypeID" />
+          <ScalarProperty Name="VehicleTypeName" ColumnName="VehicleTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

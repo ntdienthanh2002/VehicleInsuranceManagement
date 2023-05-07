@@ -1,0 +1,91 @@
+﻿@using VehicleInsuranceManagement.Models
+@model dynamic
+
+<form id="insuranceInfo">
+    <div class="form-group row">
+        <label class="col-md-3 col-sm-4" for="insurance" style="display: flex; align-items: center; padding-right: 6px;">Select an insurance</label>
+        <div class="col-md-9 col-sm-8">
+            <select class="form-select col-9 border-0" id="insurance" style="height: 55px;">
+                <option selected disabled>--Select--</option>
+                @foreach (InsuranceType insuranceType in Model.InsuranceTypes)
+                {
+                    double insurancePrice = (double)insuranceType.Price;
+                    <option id="@insuranceType.InsuranceTypeID" value="@insurancePrice">@insuranceType.InsuranceTypeName</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="form-group row" style="margin-top: 1.8rem; margin-bottom: 1.8rem;">
+        <label class="col-md-3 col-sm-4" for="insuranceYear" style="display: flex; align-items: center; padding-right: 6px;">Number of years</label>
+        <div class="col-md-9 col-sm-8" style="display: flex; align-items: center;">
+            <div class="col-6">
+                <label class="radio-inline" style="margin-right: 10px;">
+                    <input type="radio" name="insuranceYear" value="1" checked>1 Year
+                </label>
+            </div>
+            <div class="col-6">
+                <label class="radio-inline" style="margin-left: 10px;">
+                    <input type="radio" name="insuranceYear" value="2">2 Years
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-3 col-sm-4" for="duration" style="display: flex; align-items: center; padding-right: 6px;">Duration</label>
+        <div class="col-md-9 col-sm-8" style="display: flex; align-items: center;">
+            <div class="col-6">
+                <div class="date" id="date1" data-target-input="nearest">
+                    <input type="text"
+                           class="form-control border-0 datetimepicker-input"
+                           placeholder="From" data-target="#date1" data-toggle="datetimepicker" style="height: 55px; background: #FFF">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="date" id="date2" data-target-input="nearest">
+                    <input type="text"
+                           class="form-control border-0 datetimepicker-input"
+                           placeholder="To" data-target="#date2" data-toggle="datetimepicker" style="height: 55px; background: #FFF" readonly="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contentOrder" class="row">
+        <hr>
+        <div class="row selectedVehicle">
+            <div class="col-md-3 col-sm-4 title">
+                <span>Selected vehicle</span>
+            </div>
+            <div class="col-md-9 col-sm-8 content">
+                @{
+                    VehicleModelView v = Model.Vehicle;
+                }
+                <span>@v.model.VehicleBrand.VehicleBrandName - @v.model.VehicleModelName - @v.vehicle.VehicleOwnerName</span>
+            </div>
+        </div>
+        <div class="row insurancePrice">
+            <div class="col-md-3 col-sm-4 title">
+                <span>Insurance price</span>
+            </div>
+            <div class="col-md-9 col-sm-8 content">
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-secondary py-3 w-100 btnBack" style="margin-top: 1rem;" type="button">Back</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-secondary py-3 w-100 btnContinue" style="margin-top: 1rem; float: right" type="button">Continue</button>
+        </div>
+    </div>
+</form>
+<script>
+    var today = new Date();
+    today.setDate(today.getDate() + 1);
+
+    $('.date').datetimepicker({
+        format: 'L',
+        minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate())
+    });
+</script>

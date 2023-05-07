@@ -1,0 +1,99 @@
+﻿@using VehicleInsuranceManagement.Models
+@model dynamic
+
+@*<form id="paymentInfo">
+    </form>*@
+
+@using (Html.BeginForm("_PartialOrderSummary", "PurchaseInsuranceProcesses", FormMethod.Post, new { id = "orderSummary", }))
+{
+    @Html.AntiForgeryToken()
+    var now = DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss");
+    <div id="billSchedule">
+
+    </div>
+    <input type="hidden" name="amount" class="amountPerPayment" />
+    <input type="hidden" name="count" class="count" value="" />
+    <div id="contentOrder" class="row">
+        <div class="row selectedVehicle">
+            <div class="col-md-3 col-sm-4 title">
+                <span>Selected vehicle</span>
+            </div>
+            <div class="col-md-9 col-sm-8 content">
+                @{
+                    VehicleModelView v = Model.Vehicle;
+                }
+                <span>@v.model.VehicleBrand.VehicleBrandName - @v.model.VehicleModelName - @v.vehicle.VehicleOwnerName</span>
+                @Html.Hidden("VehicleID", v.vehicle.VehicleID, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="row selectedInsurance">
+            <div class="col-md-3 col-sm-4 title">
+                <span>Selected insurance</span>
+            </div>
+            <div class="col-md-9 col-sm-8 content">
+                @{
+                    InsuranceType i = Model.InsuranceType;
+                }
+                <span>@i.InsuranceTypeName</span>
+                @Html.Hidden("InsuranceTypeID", i.InsuranceTypeID, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="row insurancePrice">
+            <div class="col-md-3 col-sm-4 title">
+                <span>Insurance price</span>
+            </div>
+            <div class="col-md-9 col-sm-8 content">
+                <span>@String.Format("{0:C}", @i.Price)</span>
+                @Html.Hidden("InsurancePrice", i.Price, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="row insuranceDate">
+            <div class="col-md-3 col-sm-4 title">
+                <span>Insurance duration:</span>
+            </div>
+            <div class="col-md-9 col-sm-8 content">
+                <span></span>
+                @Html.Hidden("PolicyDate", null, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.Hidden("PolicyDuration", null, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="row paymentType">
+            <div class="col-md-3 col-sm-4 title">
+                <span>Payment Type</span>
+            </div>
+            <div class="col-md-9 col-sm-8 content">
+                <span></span>
+                @Html.Hidden("PaymentType", null, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="row totalPrice">
+            <div class="col-md-3 col-sm-4 title">
+                <span>Total price</span>
+            </div>
+            <div class="col-md-9 col-sm-8 content">
+                <span></span>
+            </div>
+        </div>
+        <div class="row paymentSchedule">
+            <h4>Payment Schedule</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="col-6">Payment date</th>
+                        <th scope="col" class="col-6">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-secondary py-3 w-100 btnBack" style="margin-top: 1rem;" type="button">Back</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-secondary py-3 w-100 btnBuy" style="margin-top: 1rem; float: right" type="button">Buy</button>
+        </div>
+    </div>
+}

@@ -1,0 +1,87 @@
+﻿@model IEnumerable<VehicleInsuranceManagement.Models.Vehicle>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleOwnerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleBodyNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleEngineNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SeatNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleType.VehicleTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleModel.VehicleModelName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleOwnerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleBodyNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleEngineNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SeatNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleType.VehicleTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleModel.VehicleModelName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.VehicleID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.VehicleID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.VehicleID })
+        </td>
+    </tr>
+}
+
+</table>

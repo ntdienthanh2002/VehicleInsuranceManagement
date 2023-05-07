@@ -1,0 +1,96 @@
+﻿@using System.Web;
+@{
+    ViewBag.Title = "Index";
+}
+
+<!-- Page Header Start -->
+<div class="container-fluid page-header mb-5 p-0" style="background-image: url(../../img/carousel-bg-1.jpg);">
+    <div class="container-fluid page-header-inner py-5">
+        <div class="container text-center">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">My Account</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">My Account</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+<!-- Service Start -->
+<div class="container-xxl service py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="text-primary text-uppercase">// Our Services //</h6>
+            <h1 class="mb-5">Explore Our Services</h1>
+        </div>
+        <div class="row g-4 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="col-lg-3">
+                <div class="nav w-100 nav-pills me-4">
+                    <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-4 active" data-bs-toggle="pill" data-bs-target="#tab-pane-1" type="button">
+                        <i class="fa fa-user fa-2x me-3"></i>
+                        <h4 class="m-0">My Account</h4>
+                    </button>
+                    <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-4" data-bs-toggle="pill" data-bs-target="#tab-pane-2" type="button">
+                        <i class="fa fa-car fa-2x me-3"></i>
+                        <h4 class="m-0">My Vehicles</h4>
+                    </button>
+                    <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-4" data-bs-toggle="pill" data-bs-target="#tab-pane-3" type="button">
+                        <i class="fa fa-cog fa-2x me-3"></i>
+                        <h4 class="m-0">My Insurances</h4>
+                    </button>
+                    <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-0" data-bs-toggle="pill" data-bs-target="#tab-pane-4" type="button">
+                        <i class="fa fa-sticky-note fa-2x me-3"></i>
+                        <h4 class="m-0">My Claims</h4>
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="tab-content w-100">
+                    <div class="tab-pane fade show active" id="tab-pane-1">
+                        
+                    </div>
+                    <div class="tab-pane fade" id="tab-pane-2">
+
+                    </div>
+                    <div class="tab-pane fade" id="tab-pane-3">
+                        
+                    </div>
+                    <div class="tab-pane fade" id="tab-pane-4">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Service End -->
+<!-- The Modal -->
+<div class="modal fade" id="insuranceModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"></h4>
+                <button type="button" class="close btnClose" onclick="closeModal();">×</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btnInvoice">Invoice</button>
+                <button type="button" class="btn btn-default btnPrint" onclick="location.href='@Url.Action("PrintInvoice", "OrderPolicies", new { orderID = 1 })';">Print</button>
+                <button type="button" class="btn btn-dark btnClose" onclick="closeModal();">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.title = "My Account"
+</script>

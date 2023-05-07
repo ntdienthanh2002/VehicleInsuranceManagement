@@ -1,0 +1,53 @@
+﻿@model VehicleInsuranceManagement.Models.Claim
+
+<div class="g-4 p-5 customForm">
+    @using (Html.BeginForm("_PartialAddClaim", "Claims", FormMethod.Post, new { id = "addClaim", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.PolicyNumber, "Policy", htmlAttributes: new { @class = "control-label col-md-3 col-sm-4" })
+            <div class="col-md-9 col-sm-8">
+                @Html.DropDownList("PolicyNumber", null, "--Select--", htmlAttributes: new { @class = "form-select col-9 border-0" })
+                @Html.ValidationMessageFor(model => model.PolicyNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+        <div class="form-group row">
+            @Html.LabelFor(model => model.PlaceOfAccident, htmlAttributes: new { @class = "control-label col-md-3 col-sm-4" })
+            <div class="col-md-9 col-sm-8">
+                @Html.EditorFor(model => model.PlaceOfAccident, new { htmlAttributes = new { @class = "form-control col-9 ", @placeholder = Html.DisplayNameFor(Model => Model.PlaceOfAccident) } })
+                @Html.ValidationMessageFor(model => model.PlaceOfAccident, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+        <div class="form-group row">
+            @Html.LabelFor(model => model.DateOfAccident, htmlAttributes: new { @class = "control-label  col-md-3 col-sm-4" })
+            <div class="col-md-9 col-sm-8">
+                @Html.EditorFor(model => model.DateOfAccident, new { htmlAttributes = new { @class = "form-control col-9 ", @placeholder = Html.DisplayNameFor(Model => Model.DateOfAccident) } })
+                @Html.ValidationMessageFor(model => model.DateOfAccident, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+        <div class="form-group row">
+            @Html.LabelFor(model => model.ClaimableAmount, htmlAttributes: new { @class = "control-label col-md-3 col-sm-4" })
+            <div class="col-md-9 col-sm-8">
+                @Html.EditorFor(model => model.ClaimableAmount, new { htmlAttributes = new { @class = "form-control col-9 ", @placeholder = Html.DisplayNameFor(Model => Model.ClaimableAmount) } })
+                @Html.ValidationMessageFor(model => model.ClaimableAmount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-secondary py-3 w-100 btnBack" style="margin-top: 1rem;" type="button">Back</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-secondary w-100 py-3 btnAdd" style="margin-top: 1rem;" type="button">Add</button>
+            </div>
+        </div>
+
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

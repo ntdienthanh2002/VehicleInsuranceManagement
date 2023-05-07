@@ -1,0 +1,98 @@
+﻿@model VehicleInsuranceManagement.Models.Vehicle
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Vehicle</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleOwnerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleOwnerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleBodyNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleBodyNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleEngineNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleEngineNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeatNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeatNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleType.VehicleTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleType.VehicleTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleModel.VehicleModelName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleModel.VehicleModelName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.VehicleID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

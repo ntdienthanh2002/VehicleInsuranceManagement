@@ -1,0 +1,113 @@
+﻿@model VehicleInsuranceManagement.Models.Vehicle
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="container-fluid page-header mb-5 p-0" style="background-image: url(../../img/carousel-bg-1.jpg);">
+    <div class="container-fluid page-header-inner py-5">
+        <div class="container text-center">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Add Vehicle's Informtion</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Add Vehicle's Informtion</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<form method="post" action="/Vehicles/Create" enctype="multipart/form-data">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.VehicleTypeID, "VehicleTypeID", htmlAttributes: new { @class = "control-label" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("VehicleTypeID", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.VehicleTypeID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.VehicleModelID, "VehicleModelID", htmlAttributes: new { @class = "control-label" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("VehicleModelID", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.VehicleModelID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CustomerID, "CustomerID", htmlAttributes: new { @class = "control-label" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("CustomerID", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CustomerID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.VehicleOwnerName, htmlAttributes: new { @class = "control-label" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.VehicleOwnerName, new { htmlAttributes = new { @class = "form-control", @placeholder = Html.DisplayNameFor(Model => Model.VehicleOwnerName) } })
+                            @Html.ValidationMessageFor(model => model.VehicleOwnerName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.VehicleBodyNumber, htmlAttributes: new { @class = "control-label" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.VehicleBodyNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = Html.DisplayNameFor(Model => Model.VehicleBodyNumber) } })
+                            @Html.ValidationMessageFor(model => model.VehicleBodyNumber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.VehicleEngineNumber, htmlAttributes: new { @class = "control-label" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.VehicleEngineNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = Html.DisplayNameFor(Model => Model.VehicleEngineNumber) } })
+                            @Html.ValidationMessageFor(model => model.VehicleEngineNumber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.VehicleNumber, htmlAttributes: new { @class = "control-label" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.VehicleNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = Html.DisplayNameFor(Model => Model.VehicleNumber) } })
+                            @Html.ValidationMessageFor(model => model.VehicleNumber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SeatNumber, htmlAttributes: new { @class = "control-label" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.SeatNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = Html.DisplayNameFor(Model => Model.SeatNumber) } })
+                            @Html.ValidationMessageFor(model => model.SeatNumber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label" })
+                        <div class="col-md-10">
+                            <input type="file" name="uploadFile" class="form-control" />
+                            @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <div class="col-10">
+                            <input type="submit" value="Create" class="btn btn-danger w-100 py-3" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</form>

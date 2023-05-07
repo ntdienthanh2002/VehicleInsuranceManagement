@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fb749b7bf3e14c03ae0ee8053ae0bf41" Name="Diagram1">
+        <EntityTypeShape EntityType="VehicleInsuranceModel.Bill" Width="1.5" PointX="10.5" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleInsuranceModel.Claim" Width="1.5" PointX="10.5" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleInsuranceModel.Coefficient" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleInsuranceModel.CompanyExpense" Width="1.5" PointX="5.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleInsuranceModel.Customer" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleInsuranceModel.Employee" Width="1.5" PointX="7.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleInsuranceModel.Feedback" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleInsuranceModel.InsuranceType" Width="1.5" PointX="6" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleInsuranceModel.OrderPolicy" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleInsuranceModel.Vehicle" Width="1.5" PointX="6" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleInsuranceModel.VehicleBrand" Width="1.5" PointX="1.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleInsuranceModel.VehicleModel" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleInsuranceModel.VehicleType" Width="1.5" PointX="3.75" PointY="8.5" IsExpanded="true" />
+        <AssociationConnector Association="VehicleInsuranceModel.FK__Bill__PolicyNumb__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleInsuranceModel.FK__Claim__PolicyNum__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleInsuranceModel.FK__Feedback__Custom__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleInsuranceModel.FK__Vehicle__Custome__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleInsuranceModel.FK__OrderPoli__Insur__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleInsuranceModel.FK__OrderPoli__Vehic__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleInsuranceModel.FK__Vehicle__Vehicle__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleInsuranceModel.FK__Vehicle__Vehicle__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleInsuranceModel.FK__VehicleMo__Vehic__534D60F1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

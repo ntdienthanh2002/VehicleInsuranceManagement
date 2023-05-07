@@ -1,0 +1,69 @@
+﻿@model IEnumerable<VehicleInsuranceManagement.Models.OrderPolicy>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PolicyDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PolicyDuration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InsuranceType.InsuranceTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vehicle.VehicleOwnerName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PolicyDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PolicyDuration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InsuranceType.InsuranceTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vehicle.VehicleOwnerName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PolicyNumber }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PolicyNumber }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PolicyNumber })
+        </td>
+    </tr>
+}
+
+</table>

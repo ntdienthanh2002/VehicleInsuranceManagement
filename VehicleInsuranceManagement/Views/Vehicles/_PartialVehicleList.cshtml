@@ -1,0 +1,85 @@
+﻿@model IEnumerable<VehicleInsuranceManagement.Models.VehicleModelView>
+
+<div class="g-4 p-5 customForm">
+    <div style="padding-bottom: 3rem;">
+        <h4 style="float: left;">My Vehicles</h4>
+        <button class="btn btn-secondary btnAddVehicle" style="float: right;">Add vehicle</button>
+    </div>
+
+    <table class="table table-hover" style="margin-top: 1.5rem;" id="vehicleList">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.vehicle.VehicleType.VehicleTypeName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.model.VehicleBrand.VehicleBrandName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.model.VehicleModelName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.vehicle.VehicleOwnerName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.vehicle.VehicleNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.vehicle.SeatNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.vehicle.Status)
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.vehicle.VehicleType.VehicleTypeName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.model.VehicleBrand.VehicleBrandName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.model.VehicleModelName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.vehicle.VehicleOwnerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.vehicle.VehicleNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.vehicle.SeatNumber)
+                    </td>
+                    <td>
+                        @{
+                            string status = "";
+                            if (item.vehicle.Status == "Enable")
+                            {
+                                status = "Confirmed";
+                            }
+                            else if (item.vehicle.Status == "Disable")
+                            {
+                                status = "Unconfirmed";
+                            }
+                            else if (item.vehicle.Status == "Invalid")
+                            {
+                                status = "Invalid";
+                            }
+                        }
+                        @status
+                    </td>
+                    <td style="text-align: center;">
+                        <a class="btn btn-default btnEditVehicle" id="@item.vehicle.VehicleID" style="font-size: small; padding: 0px;" vehicle-status="@item.vehicle.Status"><i class="fa fa-edit" style="color: #0B2154;"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

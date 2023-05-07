@@ -1,0 +1,94 @@
+﻿@using System.Web;
+@{
+    ViewBag.Title = "Index";
+}
+
+<!-- Page Header Start -->
+<div class="container-fluid page-header mb-5 p-0" style="background-image: url(../../img/carousel-bg-1.jpg);">
+    <div class="container-fluid page-header-inner py-5">
+        <div class="container text-center">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Get An Insurance</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Get An Insurance</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+<!-- Service Start -->
+<div class="container-xxl service py-5" id="purchaseInsurance">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="text-primary text-uppercase">// Our Services //</h6>
+            <h1 class="mb-5">Get An Insurance</h1>
+        </div>
+        <div class="row g-4 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="col-lg-4">
+                <div class="nav w-100 nav-pills me-4">
+                    <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-4 active" disabled data-bs-toggle="pill" data-bs-target="#tab-pane-1" type="button">
+                        <i class="fa fa-calculator fa-2x me-3"></i>
+                        <h4 class="m-0">Estimate</h4>
+                    </button>
+                    <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-4" disabled data-bs-toggle="pill" data-bs-target="#tab-pane-2" type="button">
+                        <i class="fa fa-car fa-2x me-3"></i>
+                        <h4 class="m-0">Insurance Information</h4>
+                    </button>
+                    <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-4" disabled data-bs-toggle="pill" data-bs-target="#tab-pane-3" type="button">
+                        <i class="fa fa-money-bill fa-2x me-3"></i>
+                        <h4 class="m-0">Billing Information</h4>
+                    </button>
+                    <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-0" disabled data-bs-toggle="pill" data-bs-target="#tab-pane-4" type="button">
+                        <i class="fa fa-list-alt fa-2x me-3"></i>
+                        <h4 class="m-0">Order Summary</h4>
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="tab-content w-100">
+                    <div class="tab-pane fade show active" id="tab-insurance">
+                        <div class="row g-4">
+                            <div class="col-lg-12">
+                                <div id="orderForm" class="bg-primary h-100 d-flex flex-column justify-content-center p-5 wow zoomIn customForm" data-wow-delay="0.2s">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Service End -->
+<!-- The Modal -->
+<div class="modal fade" id="insuranceModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"></h4>
+                <button type="button" class="close btnClose" onclick="closeModal();">×</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btnHome" onclick="location.href='@Url.Action("Index", "Home")';">Go to Home</button>
+                <button type="button" class="btn btn-default btnPrint" onclick="location.href='@Url.Action("PrintInvoice", "PurchaseInsuranceProcesses")';">Print</button>
+                <button type="button" class="btn btn-dark btnClose" onclick="closeModal();">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    document.title = "Get An Insurance Page"
+</script>

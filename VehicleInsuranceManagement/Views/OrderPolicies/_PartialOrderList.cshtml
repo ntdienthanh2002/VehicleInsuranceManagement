@@ -1,0 +1,56 @@
+﻿@model IEnumerable<VehicleInsuranceManagement.Models.OrderPolicy>
+
+<div class="g-4 p-5 customForm">
+    <div style="padding-bottom: 3rem;">
+        <h4 style="float: left;">My Insurances</h4>
+        <button class="btn btn-secondary btnAddVehicle" style="float: right;" onclick="location.href='@Url.Action("Index", "PurchaseInsuranceProcesses")';">Add insurance</button>
+    </div>
+
+    <table class="table table-hover" style="margin-top: 1.5rem;" id="orderList">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Vehicle.VehicleNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InsuranceType.InsuranceTypeName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    Details
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Vehicle.VehicleNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InsuranceType.InsuranceTypeName)
+                    </td>
+                    <td>
+                        @{
+                            string date = item.OrderDate.ToString("MM/dd/yyyy HH:mm:ss");
+                        }
+                        @date
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td style="text-align: center;">
+                        <a class="btn btn-default btnViewBill" id="@item.PolicyNumber" style="font-size: small; padding: 0px;"><i class="fa fa-list" style="color: #0B2154;"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<VehicleInsuranceManagement.Models.InsuranceType>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.InsuranceTypeName)
+            </th>
+            <th style="text-align: center;">
+                @Html.DisplayNameFor(model => model.Price) (USD/year)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InsuranceTypeName)
+                </td>
+                <td class="text-right" style="text-align: center;">
+                    @{
+                        double price = Convert.ToDouble(item.Price);
+                        double c = Convert.ToDouble(ViewData["Coefficient"]);
+                        var insurancePrice = price + price * c;
+                    }
+                    @String.Format("{0:C}", insurancePrice)
+                </td>
+                <td style="text-align: right;">
+                    @{
+                        string[] separatingStrings = { "<div>", "</div>" };
+                        string[] words = item.Description.Split(separatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
+                    }
+                    <a data-toggle="popover" data-content="@words[0]" style="color: #D81324;">
+                        <span class="fa fa-question-circle"></span>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover({
+            trigger: "hover",
+            placement: "bottom",
+            html: true,
+            content: function () {
+                return $(this).attr('data-content');
+            }
+        });
+    });
+</script>

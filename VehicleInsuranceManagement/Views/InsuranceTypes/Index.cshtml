@@ -1,0 +1,55 @@
+﻿@model IEnumerable<VehicleInsuranceManagement.Models.InsuranceType>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="text-primary text-uppercase">// Our Insurances //</h6>
+            <h1 class="mb-5">Explore Our Insurances</h1>
+        </div>
+        <div class="row g-4" id="insuranceType">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 wow fadeInUp insurance" data-wow-delay="0.1s">
+                    <div class="d-flex py-5 px-4 insurance-border">
+                        <i class="fa fa-certificate fa-3x text-primary flex-shrink-0"></i>
+                        <div class="ps-4">
+                            <h5 class="mb-3">
+                                @Html.DisplayFor(modelItem => item.InsuranceTypeName)
+                            </h5>
+                            <p>@Html.DisplayFor(modelItem => item.Price)</p>
+                            <a class="btn btn-default btnReadMore" id="@item.InsuranceTypeID">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- The Modal -->
+<div class="modal fade" id="insuranceModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"></h4>
+                <button type="button" class="close btnClose" onclick="closeModal();">×</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark btnClose" onclick="closeModal();">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿@using VehicleInsuranceManagement.Models
+@model dynamic
+
+<form id="estimate">
+    <div class="form-group row">
+        <label class="col-md-3 col-sm-4" for="vehicle" style="display: flex; align-items: center; padding-right: 6px;">Select a vehicle</label>
+        <div class="col-md-9 col-sm-8">
+            <select class="form-select col-9 border-0" id="vehicle" style="height: 55px;">
+                <option selected disabled>--Select--</option>
+                @foreach (Vehicle vehicle in Model.Vehicles)
+                {
+                    foreach (Coefficient c in Model.Coefficients)
+                    {
+                        if (c.SeatNumber == vehicle.SeatNumber)
+                        {
+                            <option id="@vehicle.VehicleID" value="@c.Coefficient1">@vehicle.VehicleNumber (Owner: @vehicle.VehicleOwnerName)</option>
+                        }
+                    }
+                }
+            </select>
+        </div>
+    </div>
+    <div id="estimateVehicleDetails">
+
+    </div>
+    <div id="estimateTable">
+
+    </div>
+    <button class="btn btn-secondary w-100 py-3" style="margin-top: 1rem;" type="button">Continue</button>
+</form>

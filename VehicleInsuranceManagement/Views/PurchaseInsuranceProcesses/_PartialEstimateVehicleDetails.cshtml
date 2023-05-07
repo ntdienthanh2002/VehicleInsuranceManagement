@@ -1,0 +1,62 @@
+﻿@model VehicleInsuranceManagement.Models.VehicleModelView
+
+<table class="table" style="margin-top: 1rem;">
+    <tbody>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.vehicle.VehicleOwnerName)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.vehicle.VehicleOwnerName)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.vehicle.VehicleNumber)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.vehicle.VehicleNumber)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.vehicle.VehicleType.VehicleTypeName)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.vehicle.VehicleType.VehicleTypeName)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.vehicle.VehicleBodyNumber)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.vehicle.VehicleBodyNumber)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.model.VehicleBrand.VehicleBrandName)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.model.VehicleBrand.VehicleBrandName)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.vehicle.VehicleEngineNumber)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.vehicle.VehicleEngineNumber)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.vehicle.VehicleModel.VehicleModelName)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.vehicle.VehicleModel.VehicleModelName)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.vehicle.SeatNumber)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.vehicle.SeatNumber)
+            </td>
+        </tr>
+    </tbody>
+</table>

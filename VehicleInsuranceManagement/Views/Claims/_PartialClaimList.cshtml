@@ -1,0 +1,64 @@
+﻿@model IEnumerable<VehicleInsuranceManagement.Models.Claim>
+
+<div class="g-4 p-5 customForm">
+    <div style="padding-bottom: 3rem;">
+        <h4 style="float: left;">My Claim</h4>
+        <button class="btn btn-secondary btnAddClaim" style="float: right;">Add Claim</button>
+    </div>
+
+    <table class="table table-hover" style="margin-top: 1.5rem;" id="claimList">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClaimNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PolicyNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PlaceOfAccident)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateOfAccident)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InsuredAmount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClaimableAmount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClaimNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PolicyNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PlaceOfAccident)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateOfAccident)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InsuredAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClaimNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
